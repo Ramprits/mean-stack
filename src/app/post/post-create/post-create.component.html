@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row center-md">
+    <div class="col-xs-12 col-md-6">
+      <mat-card>
+        <div class="post-container">
+          <form #f="ngForm">
+            <mat-form-field>
+              <input name="title" matInput placeholder="Title" autocomplete="off" [(ngModel)]="enteredTitle" />
+            </mat-form-field>
+            <mat-form-field>
+              <textarea
+                name="content"
+                matInput
+                placeholder="Content"
+                [(ngModel)]="enteredContent"
+                autocomplete="off"
+              ></textarea>
+            </mat-form-field>
+            <button class="end-md" mat-raised-button color="primary" (click)="onSave()">Save</button>
+          </form>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

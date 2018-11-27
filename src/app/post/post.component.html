@@ -1,0 +1,9 @@
+<div class="container">
+  <mat-card>
+    <app-post-create (postCreated)="onCreated($event)"></app-post-create>
+    <hr />
+    <pre>
+      {{ storePosts | json }}
+    </pre>
+  </mat-card>
+</div>
