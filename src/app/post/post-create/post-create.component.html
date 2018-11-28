@@ -3,20 +3,25 @@
     <div class="col-xs-12 col-md-6">
       <mat-card>
         <div class="post-container">
-          <form #f="ngForm">
+          <form #postform="ngForm" (submit)="onSavePost(postform)">
             <mat-form-field>
-              <input name="title" matInput placeholder="Title" autocomplete="off" [(ngModel)]="enteredTitle" />
+              <input name="title" matInput ngModel placeholder="Title" autocomplete="off" required #title="ngModel" />
+              <mat-error *ngIf="title.invalid">Please enter title</mat-error>
             </mat-form-field>
             <mat-form-field>
               <textarea
                 name="content"
                 matInput
                 placeholder="Content"
-                [(ngModel)]="enteredContent"
+                ngModel
+                rows="3"
                 autocomplete="off"
+                required
+                #content="ngModel"
               ></textarea>
+              <mat-error *ngIf="content.invalid">Please enter content</mat-error>
             </mat-form-field>
-            <button class="end-md" mat-raised-button color="primary" (click)="onSave()">Save</button>
+            <button class="end-md" mat-raised-button [disabled]="postform.invalid">Save</button>
           </form>
         </div>
       </mat-card>
